@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author User
  */
-public class Salary extends javax.swing.JFrame {
+public class UserSalary extends javax.swing.JFrame {
     
     private static final String DB_URL = "jdbc:mysql://localhost:3306/employeedata";
 	private static final String DB_USERNAME = "root";
@@ -33,7 +33,7 @@ public class Salary extends javax.swing.JFrame {
     /**
      * Creates new form Salary
      */
-    public Salary() {
+    public UserSalary() {
         initComponents();
         this.setLocationRelativeTo(null);
         
@@ -42,7 +42,7 @@ public class Salary extends javax.swing.JFrame {
         
         modl.setColumnIdentifiers(col);
         jTable2.setModel(modl);
-        conn = Salary.ConnectDB();
+        conn = UserSalary.ConnectDB();
                 
         //updateTable();
         
@@ -66,7 +66,7 @@ public class Salary extends javax.swing.JFrame {
     
     public void updateTable()
 {
-    conn = Salary.ConnectDB();
+    conn = UserSalary.ConnectDB();
     
     if (conn !=null)
     {
@@ -143,7 +143,6 @@ public class Salary extends javax.swing.JFrame {
         jCheckBox2 = new javax.swing.JCheckBox();
         jLabel27 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
@@ -151,7 +150,6 @@ public class Salary extends javax.swing.JFrame {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel24 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
@@ -181,19 +179,12 @@ public class Salary extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField25 = new javax.swing.JTextField();
         jTextField26 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1428, 737));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -231,6 +222,8 @@ public class Salary extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel11.setText("to:");
+
+        jTextField2.setEditable(false);
 
         jLabel12.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel12.setText("First Name:");
@@ -280,6 +273,7 @@ public class Salary extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jCheckBox1.setText("Taxable Income");
+        jCheckBox1.setEnabled(false);
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);
@@ -301,6 +295,7 @@ public class Salary extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel21.setText("Lates:");
 
+        jTextField14.setEditable(false);
         jTextField14.setText("0");
 
         jLabel25.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -312,10 +307,12 @@ public class Salary extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel26.setText("Others:");
 
+        jTextField16.setEditable(false);
         jTextField16.setText("0");
 
         jCheckBox2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jCheckBox2.setText("Apply deductions?");
+        jCheckBox2.setEnabled(false);
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
@@ -333,16 +330,9 @@ public class Salary extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel27.setText("Withholding Tax:");
 
+        jTextField17.setEditable(false);
         jTextField17.setText("0");
         jTextField17.setToolTipText("");
-
-        jButton6.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton6.setText("Search");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
 
         jButton7.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         jButton7.setText("<");
@@ -356,24 +346,18 @@ public class Salary extends javax.swing.JFrame {
         jLabel17.setText("Employee ID:");
 
         jDateChooser1.setDateFormatString("dd/MM/yyyy");
+        jDateChooser1.setEnabled(false);
 
         jLabel18.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel18.setText("Salary of:");
 
         jDateChooser2.setDateFormatString("dd/MM/yyyy");
+        jDateChooser2.setEnabled(false);
 
         jLabel24.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel24.setText("Total Hours:");
 
         jTextField6.setEditable(false);
-
-        jButton8.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton8.setText("Search");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
 
         jLabel28.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel28.setText("Hourly Rate:");
@@ -390,6 +374,7 @@ public class Salary extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel30.setText("Reg. OT:");
 
+        jTextField11.setEditable(false);
         jTextField11.setText("0");
         jTextField11.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
@@ -415,6 +400,7 @@ public class Salary extends javax.swing.JFrame {
         jLabel32.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel32.setText("Sun OT:");
 
+        jTextField12.setEditable(false);
         jTextField12.setText("0");
         jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -437,16 +423,19 @@ public class Salary extends javax.swing.JFrame {
         jLabel35.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel35.setText("Allowance:");
 
+        jTextField20.setEditable(false);
         jTextField20.setText("0");
 
         jLabel36.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel36.setText("Incentives:");
 
+        jTextField21.setEditable(false);
         jTextField21.setText("0");
 
         jLabel37.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel37.setText("Others:");
 
+        jTextField22.setEditable(false);
         jTextField22.setText("0");
 
         jLabel38.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -486,66 +475,12 @@ public class Salary extends javax.swing.JFrame {
         jTextField26.setEditable(false);
         jTextField26.setText("0");
 
-        jButton3.setBackground(new java.awt.Color(218, 223, 225));
-        jButton3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton3.setText("<");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton10.setBackground(new java.awt.Color(218, 223, 225));
-        jButton10.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton10.setText("<");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-
-        jButton11.setBackground(new java.awt.Color(218, 223, 225));
-        jButton11.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton11.setText("<");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-
         jButton12.setBackground(new java.awt.Color(218, 223, 225));
         jButton12.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jButton12.setText("<");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
-            }
-        });
-
-        jButton13.setBackground(new java.awt.Color(218, 223, 225));
-        jButton13.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton13.setText("Save");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-
-        jButton14.setBackground(new java.awt.Color(218, 223, 225));
-        jButton14.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton14.setText("Update");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-
-        jButton15.setBackground(new java.awt.Color(218, 223, 225));
-        jButton15.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jButton15.setText("Delete");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
             }
         });
 
@@ -599,8 +534,7 @@ public class Salary extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(84, 84, 84)
+                                .addGap(110, 110, 110)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton2)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -635,21 +569,12 @@ public class Salary extends javax.swing.JFrame {
                                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                                         .addGap(100, 100, 100)
                                                         .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                        .addGap(8, 8, 8)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton11)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(2, 2, 2)
-                                                .addComponent(jButton12)))))))
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jButton12)))))
                         .addGap(4, 4, 4)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton13)
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton14)
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(235, 235, 235)
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton5))
@@ -688,9 +613,7 @@ public class Salary extends javax.swing.JFrame {
                                         .addComponent(jLabel15)
                                         .addGap(99, 99, 99)
                                         .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton8)
-                                .addGap(40, 40, 40)
+                                .addGap(118, 118, 118)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -700,9 +623,7 @@ public class Salary extends javax.swing.JFrame {
                                         .addGap(20, 20, 20)
                                         .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(10, 10, 10)
-                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jButton10))
+                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -715,9 +636,7 @@ public class Salary extends javax.swing.JFrame {
                                                 .addGap(10, 10, 10)
                                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, 0)
-                                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jButton6))
+                                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGap(40, 40, 40)
                                                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -732,7 +651,7 @@ public class Salary extends javax.swing.JFrame {
                                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(12, 12, 12)
                                                 .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
+                                        .addGap(38, 38, 38)
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGap(0, 28, Short.MAX_VALUE))
         );
@@ -790,15 +709,11 @@ public class Salary extends javax.swing.JFrame {
                                         .addComponent(jLabel15))
                                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jButton8))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel18)
                                     .addComponent(jLabel11)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton6))
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(20, 20, 20)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel24)
@@ -814,7 +729,6 @@ public class Salary extends javax.swing.JFrame {
                                 .addGap(7, 7, 7)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton10)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -851,9 +765,6 @@ public class Salary extends javax.swing.JFrame {
                                     .addComponent(jLabel25)
                                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(jButton3))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
@@ -885,9 +796,7 @@ public class Salary extends javax.swing.JFrame {
                                     .addComponent(jLabel38)
                                     .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jButton11)
-                                .addGap(129, 129, 129)
+                                .addGap(160, 160, 160)
                                 .addComponent(jButton12))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -912,13 +821,9 @@ public class Salary extends javax.swing.JFrame {
                             .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton13)
-                            .addComponent(jButton14)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton15)
-                                .addComponent(jButton5)
-                                .addComponent(jButton4)))))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton5)
+                            .addComponent(jButton4))))
                 .addGap(77, 77, 77))
         );
 
@@ -977,72 +882,6 @@ public class Salary extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        SimpleDateFormat Dformat = new SimpleDateFormat ("dd/MM/yyyy");
-        
-        String eid = jTextField2.getText();
-        String strDate = Dformat.format(jDateChooser1.getDate());
-        String ndDate = Dformat.format(jDateChooser2.getDate());
-        String sql1 = "Select * from attendance";
-        String sql = "Select * from attendance where EmployeeID=? and Date <= ? && Date >= ?";
-         try
-         {
-             if (strDate.equals("") || ndDate.equals(""))
-             {
-                 pst = conn.prepareStatement(sql1);
-             } else {
-           
-                 modl.setRowCount(0);
-                 pst = conn.prepareStatement(sql);
-
-                 pst.setString(1, eid);
-                 pst.setString(2, strDate);
-                 pst.setString(3, ndDate);
-                 rs = pst.executeQuery();
-
-                 Object[] columnData = new Object[7];
-           
-           while(rs.next()){
-               columnData[0] = rs.getString("EmployeeID");
-               columnData[1] = rs.getString("FirstName");
-               columnData[2] = rs.getString("LastName");
-               columnData[3] = rs.getString("Date");
-               columnData[4] = rs.getString("TimeIn");
-               columnData[5] = rs.getString("TimeOut");
-               columnData[6] = rs.getString("Total");
-            
-               modl.addRow(columnData);
-               
-                
-               
-           } 
-                 int rowsCount = jTable2.getRowCount();
-                 double sum = 0;
-
-                 for (int i = 0; i < rowsCount; i++) {
-                     double val = Double.parseDouble(jTable2.getValueAt(i, 6).toString());
-                     sum += val;
-                 }
-                 
-                 jTextField6.setText(Double.toString(sum));
-                 
-                 double num1 = Double.parseDouble(jTextField7.getText()); 
-                 double num2 = Double.parseDouble(jTextField6.getText());
-
-                 double result = num1*num2;
-                 jTextField18.setText(Double.toString(result));
-               
-             }
-      
-           
-       }
-    catch (HeadlessException | SQLException e)
-    {
-        JOptionPane.showMessageDialog(null, e);
-      
-    }        
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
      frame = new JFrame ("Exit");
         if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit","MotorPH Payroll System",
@@ -1050,65 +889,6 @@ public class Salary extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jCheckBox2.setSelected(false);
-        jCheckBox1.setSelected(false);
-        
-            jTextField3.setText(null);
-            jTextField4.setText(null);
-            jTextField5.setText("0");
-            jTextField6.setText(null);
-            jTextField7.setText("0");
-            jTextField8.setText("0");
-            jDateChooser1.setDate(null);
-            jDateChooser2.setDate(null);
-            jTextField9.setText("0");
-            jTextField10.setText("0");
-            jTextField11.setText("0");
-            jTextField12.setText("0");
-            jTextField13.setText("0");
-            jTextField14.setText("0");
-            jTextField15.setText("0");
-            jTextField16.setText("0");
-            jTextField17.setText("0");
-            jTextField18.setText("0");
-            jTextField19.setText("0");
-            jTextField20.setText("0");
-            jTextField21.setText("0");
-            jTextField22.setText("0");
-            jTextField23.setText("0");
-            jTextField24.setText("0");
-            jTextField25.setText("0");
-            jTextField26.setText("0");
-        String sql = "Select * from employeedata where EmployeeID=?";
-         try
-        {
-            pst = conn.prepareStatement(sql);
-           
-           
-           pst.setString(1,jTextField2.getText());
-           rs = pst.executeQuery();
-           
-           if(rs.next()){
-               jTextField2.setText(rs.getString(1));
-               jTextField3.setText(rs.getString(2));
-               jTextField4.setText(rs.getString(3));
-               jTextField5.setText(rs.getString(10));
-               jTextField7.setText(rs.getString(11));
-
-           } else {
-                JOptionPane.showMessageDialog(null, "No Data Found!",
-                "MotorPH Payroll System", JOptionPane.OK_OPTION);
-            }
-           
-            }
-    catch (HeadlessException | SQLException e)
-    {
-        JOptionPane.showMessageDialog(null, e);
-      
-    }        
-    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jCheckBox2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCheckBox2KeyPressed
         
@@ -1195,17 +975,6 @@ public class Salary extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-            double num1 = Double.parseDouble(jTextField9.getText()); 
-            double num2 = Double.parseDouble(jTextField25.getText());
-            double num3 = Double.parseDouble(jTextField26.getText());
-            double num4 = Double.parseDouble(jTextField14.getText());
-            double num5 = Double.parseDouble(jTextField16.getText());
-            
-            double result = num1+num2+num3+num4+num5;
-            jTextField15.setText(Double.toString(result));
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jTextField11KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyTyped
         
             
@@ -1224,20 +993,6 @@ public class Salary extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jTextField11InputMethodTextChanged
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-            double num1 = Double.parseDouble(jTextField11.getText());
-            double num2 = Double.parseDouble(jTextField7.getText());
-            double result = num1*num2*0.25;
-            jTextField19.setText(Double.toString(result));  
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-            double num1 = Double.parseDouble(jTextField12.getText());
-            double num2 = Double.parseDouble(jTextField7.getText());
-            double result = num1*num2*0.3;
-            jTextField8.setText(Double.toString(result));
-    }//GEN-LAST:event_jButton11ActionPerformed
-
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
             double num1 = Double.parseDouble(jTextField19.getText());
             double num2 = Double.parseDouble(jTextField8.getText());
@@ -1251,221 +1006,6 @@ public class Salary extends javax.swing.JFrame {
             
        
     }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        
-        SimpleDateFormat Dformat = new SimpleDateFormat ("dd/MM/yyyy");
-
-        String sql = "INSERT INTO salary (SalaryCode, EmployeeID, FirstName, LastName, BasicSalary, HourlyRate, DateFrom, "
-        + "DateTo, TotalHours, TotalPay, RegOTHours, RegOTPay, SunOTHours, SunOTPay, Allowance, Incentives, Others, GrossIncome, SSS,"
-        + "Philhealth, Pagibig, Lates, OtherDeductions, TotalDeductions, WithholdingTax, NetIncome)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        try
-        {
-            pst = conn.prepareStatement(sql);
-
-            pst.setString(1,jTextField1.getText());
-            pst.setString(2,jTextField2.getText());
-            pst.setString(3,jTextField3.getText());
-            pst.setString(4,jTextField4.getText());
-            pst.setString(5,jTextField5.getText());
-            pst.setString(6,jTextField7.getText());
-            pst.setString(7,Dformat.format (jDateChooser2.getDate()));
-            pst.setString(8,Dformat.format (jDateChooser1.getDate()));
-            pst.setString(9,jTextField6.getText());
-            pst.setString(10,jTextField18.getText());
-            pst.setString(11,jTextField11.getText());
-            pst.setString(12,jTextField19.getText());
-            pst.setString(13,jTextField12.getText());
-            pst.setString(14,jTextField8.getText());
-             pst.setString(15,jTextField20.getText());
-            pst.setString(16,jTextField21.getText());
-            pst.setString(17,jTextField22.getText());
-            pst.setString(18,jTextField23.getText());
-            pst.setString(19,jTextField9.getText());
-            pst.setString(20,jTextField25.getText());
-            pst.setString(21,jTextField26.getText());
-            pst.setString(22,jTextField14.getText());
-            pst.setString(23,jTextField16.getText());
-            pst.setString(24,jTextField15.getText());
-            pst.setString(25,jTextField17.getText());
-            pst.setString(26,jTextField24.getText());
-            
-
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "System Updated");
-            rs.close();
-            pst.close();
-
-            jTextField1.setText("23022400");
-            jTextField2.setText(null);
-            jTextField3.setText(null);
-            jTextField4.setText(null);
-            jTextField5.setText("0");
-            jTextField6.setText(null);
-            jTextField7.setText("0");
-            jTextField8.setText("0");
-            jDateChooser1.setDate(null);
-            jDateChooser2.setDate(null);
-            jTextField9.setText("0");
-            jTextField10.setText("0");
-            jTextField11.setText("0");
-            jTextField12.setText("0");
-            jTextField13.setText("0");
-            jTextField14.setText("0");
-            jTextField15.setText("0");
-            jTextField16.setText("0");
-            jTextField17.setText("0");
-            jTextField18.setText("0");
-            jTextField19.setText("0");
-            jTextField20.setText("0");
-            jTextField21.setText("0");
-            jTextField22.setText("0");
-            jTextField23.setText("0");
-            jTextField24.setText("0");
-            jTextField25.setText("0");
-            jTextField26.setText("0");
-
-        }
-        catch (HeadlessException | SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e);
-
-        }
-
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-         SimpleDateFormat Dformat = new SimpleDateFormat ("dd/MM/yyyy");
-
-        String sql = "UPDATE salary set FirstName=?, LastName=?, BasicSalary=?, HourlyRate=?, DateFrom=?, "
-        + "DateTo=?, TotalHours=?, TotalPay=?, RegOTHours=?, RegOTPay=?, SunOTHours=?, SunOTPay=?, Allowance=?, Incentives=?, Others=?, GrossIncome=?, SSS=?,"
-        + "Philhealth=?, Pagibig=?, Lates=?, OtherDeductions=?, TotalDeductions=?, WithholdingTax=?, NetIncome=? where SalaryCode=? and EmployeeID=?";
-        try
-        {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1,jTextField3.getText());
-            pst.setString(2,jTextField4.getText());
-            pst.setString(3,jTextField5.getText());
-            pst.setString(4,jTextField7.getText());
-            pst.setString(5,Dformat.format (jDateChooser2.getDate()));
-            pst.setString(6,Dformat.format (jDateChooser1.getDate()));
-            pst.setString(7,jTextField6.getText());
-            pst.setString(8,jTextField18.getText());
-            pst.setString(9,jTextField11.getText());
-            pst.setString(10,jTextField19.getText());
-            pst.setString(11,jTextField12.getText());
-            pst.setString(12,jTextField8.getText());
-             pst.setString(13,jTextField20.getText());
-            pst.setString(14,jTextField21.getText());
-            pst.setString(15,jTextField22.getText());
-            pst.setString(16,jTextField23.getText());
-            pst.setString(17,jTextField9.getText());
-            pst.setString(18,jTextField25.getText());
-            pst.setString(19,jTextField26.getText());
-            pst.setString(20,jTextField14.getText());
-            pst.setString(21,jTextField16.getText());
-            pst.setString(22,jTextField15.getText());
-            pst.setString(23,jTextField17.getText());
-            pst.setString(24,jTextField24.getText());
-            pst.setString(25,jTextField1.getText());
-            pst.setString(26,jTextField2.getText());
-            
-
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "System Updated");
-            rs.close();
-            pst.close();
-
-            jTextField1.setText("23022400");
-            jTextField2.setText(null);
-            jTextField3.setText(null);
-            jTextField4.setText(null);
-            jTextField5.setText("0");
-            jTextField6.setText(null);
-            jTextField7.setText("0");
-            jTextField8.setText("0");
-            jDateChooser1.setDate(null);
-            jDateChooser2.setDate(null);
-            jTextField9.setText("0");
-            jTextField10.setText("0");
-            jTextField11.setText("0");
-            jTextField12.setText("0");
-            jTextField13.setText("0");
-            jTextField14.setText("0");
-            jTextField15.setText("0");
-            jTextField16.setText("0");
-            jTextField17.setText("0");
-            jTextField18.setText("0");
-            jTextField19.setText("0");
-            jTextField20.setText("0");
-            jTextField21.setText("0");
-            jTextField22.setText("0");
-            jTextField23.setText("0");
-            jTextField24.setText("0");
-            jTextField25.setText("0");
-            jTextField26.setText("0");
-
-        }
-        catch (HeadlessException | SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e);
-
-        }
-
-
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-
-        String sql = "delete from salary where SalaryCode=? and EmployeeID=?";
-        try
-        {
-            pst = conn.prepareStatement(sql);
-
-            pst.setString(1,jTextField1.getText());
-            pst.setString(2,jTextField2.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Employee Data Successfully Deleted!",
-                "MotorPH Payroll System", JOptionPane.OK_OPTION);
-
-
-             jTextField1.setText("23022400");
-            jTextField2.setText(null);
-            jTextField3.setText(null);
-            jTextField4.setText(null);
-            jTextField5.setText("0");
-            jTextField6.setText(null);
-            jTextField7.setText("0");
-            jTextField8.setText("0");
-            jDateChooser1.setDate(null);
-            jDateChooser2.setDate(null);
-            jTextField9.setText("0");
-            jTextField10.setText("0");
-            jTextField11.setText("0");
-            jTextField12.setText("0");
-            jTextField13.setText("0");
-            jTextField14.setText("0");
-            jTextField15.setText("0");
-            jTextField16.setText("0");
-            jTextField17.setText("0");
-            jTextField18.setText("0");
-            jTextField19.setText("0");
-            jTextField20.setText("0");
-            jTextField21.setText("0");
-            jTextField22.setText("0");
-            jTextField23.setText("0");
-            jTextField24.setText("0");
-            jTextField25.setText("0");
-            jTextField26.setText("0");
-
-        }
-        catch (HeadlessException | SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, e);
-
-        }
-
-    }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         SimpleDateFormat Dformat = new SimpleDateFormat ("dd/MM/yyyy");
@@ -1559,7 +1099,7 @@ public class Salary extends javax.swing.JFrame {
         try {
             jTextArea1.print();
         } catch (PrinterException ex) {
-            Logger.getLogger(Salary.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserSalary.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -1580,38 +1120,31 @@ public class Salary extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Salary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserSalary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Salary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserSalary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Salary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserSalary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Salary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserSalary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Salary().setVisible(true);
+                new UserSalary().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private com.toedter.calendar.JDateChooser jDateChooser1;

@@ -17,6 +17,7 @@ public class HomeUser extends javax.swing.JFrame {
      */
     public HomeUser() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -32,15 +33,26 @@ public class HomeUser extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu5.setText("Profile");
         jMenu5.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
         jMenuBar2.add(jMenu5);
 
         jMenu6.setText("Payslip");
         jMenu6.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
         jMenuBar2.add(jMenu6);
 
         jMenu8.setText("Help");
@@ -52,17 +64,26 @@ public class HomeUser extends javax.swing.JFrame {
         });
         jMenuBar2.add(jMenu8);
 
+        jMenu1.setText("Logout");
+        jMenu1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(jMenu1);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGap(0, 1479, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGap(0, 1108, Short.MAX_VALUE)
         );
 
         pack();
@@ -71,6 +92,22 @@ public class HomeUser extends javax.swing.JFrame {
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
     JOptionPane.showMessageDialog(null, "Contact your administrator for more information","Error", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jMenu8MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+         UserSalary usalr = new UserSalary();
+         usalr.setVisible(true);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+           UserEmployee usemp = new UserEmployee();
+            usemp.setVisible(true);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+         Login lgndu = new Login();
+            lgndu.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -108,6 +145,7 @@ public class HomeUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
