@@ -204,7 +204,7 @@ public class Login extends javax.swing.JFrame {
                 } else {
                     this.setVisible(false);
                 
-                    HomeUser userh = new HomeUser();
+                    UserHome userh = new UserHome();
                     userh.setVisible(true);
                    
                 }
